@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/hagopj13/node-express-boilerplate.svg?branch=master)](https://travis-ci.org/hagopj13/node-express-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/hagopj13/node-express-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/hagopj13/node-express-boilerplate?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2ab03f5d62a1404f87a659afe8d6d5de)](https://www.codacy.com/manual/hagopj13/node-express-mongoose-boilerplate?utm_source=github.com&utm_medium=referral&utm_content=hagopj13/node-express-boilerplate&utm_campaign=Badge_Grade)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A boilerplate/starter project for quickly building RESTful APIs using Node.js, Express, and Mongoose.
@@ -67,7 +66,6 @@ cp .env.example .env
 
 ## Features
 
-- **ES9**: latest ECMAScript features
 - **NoSQL database**: [MongoDB](https://www.mongodb.com) object data modeling using [Mongoose](https://mongoosejs.com)
 - **Authentication and authorization**: using [passport](http://www.passportjs.org)
 - **Validation**: request data validation using [Joi](https://github.com/hapijs/joi)
@@ -204,7 +202,9 @@ List of available routes:
 `POST /v1/auth/login` - login\
 `POST /v1/auth/refresh-tokens` - refresh auth tokens\
 `POST /v1/auth/forgot-password` - send reset password email\
-`POST /v1/auth/reset-password` - reset password
+`POST /v1/auth/reset-password` - reset password\
+`POST /v1/auth/send-verification-email` - send verification email\
+`POST /v1/auth/verify-email` - verify email
 
 **User routes**:\
 `POST /v1/users` - create a user\

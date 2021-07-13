@@ -11,6 +11,7 @@ const { tokenTypes } = require('../config/tokens');
  * Generate token
  * @param {ObjectId} userId
  * @param {Moment} expires
+ * @param {string} type
  * @param {string} [secret]
  * @returns {string}
  */
@@ -100,10 +101,23 @@ const generateResetPasswordToken = async (email) => {
   return resetPasswordToken;
 };
 
+/**
+ * Generate verify email token
+ * @param {User} user
+ * @returns {Promise<string>}
+ */
+const generateVerifyEmailToken = async (user) => {
+  const expires = moment().add(config.jwt.verifyEmailExpirationMinutes, 'minutes');
+  const verifyEmailToken = generateToken(user.id, expires, tokenTypes.VERIFY_EMAIL);
+  await saveToken(verifyEmailToken, user.id, expires, tokenTypes.VERIFY_EMAIL);
+  return verifyEmailToken;
+};
+
 module.exports = {
   generateToken,
   saveToken,
   verifyToken,
   generateAuthTokens,
   generateResetPasswordToken,
+  generateVerifyEmailToken,
 };
